@@ -51,3 +51,5 @@
     /api/users-fav-word: Retrieve the top most occurring words in the titles of stories submitted by users with high karma.
 
     Example: http://localhost:4242/api/users-fav-word?unique-word=10&story-size=600&karma=10000
+
+Thank you for your time.

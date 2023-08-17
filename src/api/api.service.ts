@@ -82,8 +82,8 @@ export class ApiService {
     const wordCountMap = {};
 
     allWords.forEach((word: string) => {
-      // A word must be at least 3 characters long or be 'a' or 'i' to be counted
-      if (word.length > 2 || word === 'a' || word === 'i') {
+      // A word must be at least 2 characters long or be 'a' or 'i' to be counted
+      if (word.length > 1 || word === 'a' || word === 'i') {
         wordCountMap[word] = (wordCountMap[word] || 0) + 1;
       }
     });
