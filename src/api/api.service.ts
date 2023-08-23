@@ -6,7 +6,6 @@ import { catchError, lastValueFrom, map } from 'rxjs';
 
 @Injectable()
 export class ApiService {
-  // get the baseUrl
   constructor(
     private httpService: HttpService,
     private readonly configService: ConfigService,
@@ -25,10 +24,10 @@ export class ApiService {
 
     const titles: string[] = storyDetails.map((story) => story.title);
 
-    // Process titles, count word occurrences, and get top 10 words
-    const top10Words = this.processTitlesAndGetTopWords(titles, unique);
+    // Process titles, count word occurrences, and get top words
+    const topWords = this.processTitlesAndGetTopWords(titles, unique);
 
-    return top10Words;
+    return topWords;
   }
 
   private fetchStoryIDs(chunk?: number): Promise<number[]> {
@@ -62,7 +61,7 @@ export class ApiService {
     const storyDetails = [];
     const chunk = options?.batchBy ?? 10;
 
-    // map over the array of observables by batch of 50
+    // map over the array of observables by batch
     for (let i = 0; i < storyDetailsObservables.length; i += chunk) {
       const storyDetailsChunk = await Promise.all(
         storyDetailsObservables
@@ -109,10 +108,10 @@ export class ApiService {
 
     const titles: string[] = storyDetails.map((story) => story.title);
 
-    // Process titles, count word occurrences, and get top 10 words
-    const top10Words = this.processTitlesAndGetTopWords(titles, unique);
+    // Process titles, count word occurrences, and get top words
+    const topWords = this.processTitlesAndGetTopWords(titles, unique);
 
-    return top10Words;
+    return topWords;
   }
 
   private async fetchStoryDetailsFromLastWeek(
@@ -183,7 +182,7 @@ export class ApiService {
       (story) => story.title,
     );
 
-    // Process titles, count word occurrences, and get top 10 words
+    // Process titles, count word occurrences, and get top words
     const topWords = this.processTitlesAndGetTopWords(titles, unique);
 
     return topWords;

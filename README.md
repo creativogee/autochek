@@ -32,12 +32,12 @@
 
 5.  Running Tests:
 
-         To run tests, use:
+    To run tests, use:
 
-         ```bash
-         yarn test
-         ```
-         This will execute all the tests in the application.
+    ```bash
+    yarn test
+    ```
+    This will execute all the tests in the application.
 
 6.  Usage
     /api/recent: Retrieve the top most occurring words in the titles of the latest stories.
